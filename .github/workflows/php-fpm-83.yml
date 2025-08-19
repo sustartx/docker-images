@@ -1,4 +1,4 @@
-name: "Build and Push PHP-FPM 8.3 Docker Image"
+name: "PHP-FPM 8.3 - Build and Push"
 
 on:
   push:
