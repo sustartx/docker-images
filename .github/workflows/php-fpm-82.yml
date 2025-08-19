@@ -1,16 +1,16 @@
-name: "Build and Push PHP-FPM 8.3 Docker Image"
+name: "Build and Push PHP-FPM 8.2 Docker Image"
 
 on:
   push:
     branches: [ "main" ]
     paths:
-      - 'php-fpm-83/**'
+      - 'php-fpm-82/**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: sustartx/php-fpm-83
+      IMAGE_NAME: sustartx/php-fpm-82
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,7 +27,7 @@ jobs:
         env:
           DOCKER_REPOSITORY_HOST: ${{ vars.REPOSITORY_HOST }}
         run: |
-          cd php-fpm-83
+          cd php-fpm-82
           docker build . \
             -t $DOCKER_REPOSITORY_HOST/${{ env.IMAGE_NAME }}:latest
 
