@@ -105,6 +105,9 @@ RUN \
     # OpCache
     && docker-php-ext-install -j$(nproc) opcache \
     \
+    # Redis
+    && pecl install redis && docker-php-ext-enable redis \
+    \
     # Temizlik Yapılıyor..
     && apt-get clean autoclean && apt-get -y autoremove && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
