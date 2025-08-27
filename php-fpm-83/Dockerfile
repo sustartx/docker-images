@@ -61,6 +61,7 @@ RUN \
         libcap2-bin \
         nodejs npm \
         default-mysql-client \
+        libmagickwand-dev \
     \
     # Zip
     && apt-get -y install libzip-dev zip unzip && docker-php-ext-configure zip && docker-php-ext-install zip \
@@ -69,8 +70,7 @@ RUN \
     && install-php-extensions curl exif mbstring \
     \
     # ImageMagick
-    # https://github.com/freekmurze/freek-dev-comments/issues/59#issuecomment-803560832
-    #&& apt-get install -y imagemagick libmagickwand-dev libmagickcore-dev \
+    && yes "" | pecl install imagick && docker-php-ext-enable imagick \
     \
     # Curl
     && apt-get install -y libcurl4-dev curl && docker-php-ext-install curl \
